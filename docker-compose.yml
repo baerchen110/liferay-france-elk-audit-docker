@@ -39,7 +39,7 @@ services:
       - "./logstash24/pipeline:/usr/share/logstash/pipeline"
       - "./logstash24/patterns:/usr/share/logstash/patterns"
       - "./logstash24/template:/usr/share/logstash/template"
-      - "/home/gfi-dev/LIFERAY/liferay-dxp-digital-enterprise-7.0-sp4/tomcat-8.0.32/logs:/usr/share/logstash/tomcat/logs"
+      - "/Users/huagechen/Documents/LifeRay/BNPDemo/logs:/usr/share/logstash/tomcat/logs"
     command: logstash --verbose -f /usr/share/logstash/pipeline/logstash.conf
 
 networks: {elasticstack: {}}

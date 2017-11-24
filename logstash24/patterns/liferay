@@ -1,0 +1,10 @@
+LOG4JTSTAMP %{HOUR}:?%{MINUTE}:?%{SECOND}
+LOGTHREAD   \[%{GREEDYDATA:logThread}\]
+LOGLINENUMBER   (?:[0-9\?]+)
+LOGCLASS    \[%{GREEDYDATA:logClassName}:%{LOGLINENUMBER:logLineNumber}\]
+LOG4JMESSAGE (.*)
+LIFERAYLOG4JLOG  %{TIME:time}%{SPACE}%{LOGLEVEL:logLevel}%{SPACE}%{LOGTHREAD}%{LOGCLASS}%{SPACE}%{LOG4JMESSAGE:logMessage}
+# Log formats
+COMMONAPACHELOG %{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:httpmethod} %{URIPATHPARAM:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response:int} (?:%{NUMBER:bytes:int}|-) "(?:%{DATA:referrer}|-)" "(?:%{DATA:UserAgent}|-)" "(?:%{DATA:RelativePath}|-)\" "(?:%{DATA:QueryString}|-)" %{NUMBER:TimeInSeconds:int} %{NUMBER:TimeInMicroSeconds:int}
+COMBINEDAPACHELOG %{COMMONAPACHELOG} %{QS:referrer} %{QS:agent}
+AUDITLOG %{TIME:time}%{SPACE}%{LOGLEVEL:logLevel}%{SPACE}\[%{GREEDYDATA:logThread}\]\[%{GREEDYDATA:logger}\]%{SPACE}%{GREEDYDATA:messagejson}

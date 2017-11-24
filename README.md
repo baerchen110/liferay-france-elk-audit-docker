@@ -12,4 +12,3 @@ This ELK Docker configuration allows to index Audit events from Liferay to Elast
 
 5 - The Audit events like login are indexed in elasticsearch
 
-NB : The index in Elasticsearch is not created automatically. We still work on it :-) (index_not_found_exception)

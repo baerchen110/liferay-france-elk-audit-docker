@@ -14,7 +14,7 @@
 #
 # Use a descriptive name for your cluster:
 #
-#cluster.name: elasticsearch
+cluster.name: elasticsearch
 #
 # ------------------------------------ Node ------------------------------------
 #
@@ -54,7 +54,7 @@ node.name: node-1
 #
 # Set a custom port for HTTP:
 #
-# http.port: 9200
+http.port: 9200
 transport.host: 0.0.0.0
 http.host: 0.0.0.0
 discovery.zen.minimum_master_nodes: 1
@@ -95,4 +95,4 @@ discovery.zen.minimum_master_nodes: 1
 # Require explicit names when deleting indices:
 #
 # action.destructive_requires_name: true
-action.auto_create_index: .marvel-*
+action.auto_create_index: +logstash*,+audit*
